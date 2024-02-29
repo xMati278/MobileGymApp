@@ -1,0 +1,151 @@
+WindowManager:
+    LoginWindow:
+    SignupWindow:
+    UserTrainingPlansWindow:
+
+<LoginWindow>:
+    id: login
+    username: username
+    pwd: pwd
+    FloatLayout:
+        size: root.width, root.height
+        MDLabel:
+            text: "LOGIN"
+            theme_text_color: "Secondary"
+            halign: "center"
+            font_style: "H5"
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+
+        MDLabel:
+            id: login_error
+            text: ""
+            theme_text_color: "Error"
+            opacity: 0
+            halign: "center"
+            font_style: "Caption"
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "top": 0.85}
+
+
+        MDLabel:
+            text: "USERNAME: "
+            size_hint: 0.2, 0.1
+            pos_hint: {"x":0.25, "top":0.75}
+        MDTextField:
+            id: username
+            multiline: False
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.45, "top": 0.75}
+
+        MDLabel:
+            text: "PASSWORD: "
+            size_hint: 0.2, 0.1
+            pos_hint: {"x": 0.25, "top": 0.6}
+        MDTextField:
+            id: pwd
+            password: True
+            multiline: False
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.45, "top": 0.6}
+
+        MDRaisedButton:
+            text: "Create an account"
+            size_hint: 0.4, 0.1
+            pos_hint: {"x": 0.33, "top": 0.4}
+            on_release:
+                app.root.current = 'signup'
+                root.manager.transition.direction = "left"
+        MDRaisedButton:
+            text: "LOGIN"
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.39, "top": 0.2}
+            on_release:
+                root.validate()
+                root.manager.transition.direction = "up"
+
+
+
+<SignupWindow>:
+    id: signup
+    username: username
+    pwd: pwd
+    email: email
+    FloatLayout:
+        size: root.width, root.height
+
+        MDLabel:
+            text: "REGISTER"
+            theme_text_color: "Secondary"
+            halign: "center"
+            font_style: "H5"
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+
+        MDLabel:
+            id: signup_error
+            text: ""
+            opacity: 0
+            theme_text_color: "Error"
+            halign: "center"
+            font_style: "Caption"
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": 0.5, "top": 0.85}
+
+        MDLabel:
+            text: "USERNAME: "
+            size_hint: 0.2, 0.1
+            pos_hint: {"x":0.25, "top":0.75}
+        MDTextField:
+            id: username
+            multiline: False
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.45, "top": 0.75}
+        MDLabel:
+            text: "EMAIL: "
+            size_hint: 0.2, 0.1
+            pos_hint: {"x": 0.25, "top": 0.6}
+        MDTextField:
+            id: email
+            multiline: False
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.45, "top": 0.6}
+        MDLabel:
+            text: "PASSWORD: "
+            size_hint: 0.2, 0.1
+            pos_hint: {"x": 0.25, "top": 0.45}
+        MDTextField:
+            id: pwd
+            multiline: False
+            password: True
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.45, "top": 0.45}
+        MDRaisedButton:
+            text: "Already have an account?"
+            size_hint: 0.4, 0.1
+            pos_hint: {"x": 0.33, "top": 0.3}
+            on_release:
+                app.root.current = 'login'
+                root.manager.transition.direction = "right"
+        MDRaisedButton:
+            text: "REGISTER"
+            size_hint: 0.3, 0.1
+            pos_hint: {"x": 0.39, "top": 0.15}
+            on_release:
+                root.validate()
+
+
+
+<UserTrainingPlansWindow>:
+    id: user_training_plans
+    MDScrollView:
+        size: root.width, root.height
+        MDList:
+            id: training_plans_list
+            spacing: 10
+            padding: (10,10,10,10)
+
