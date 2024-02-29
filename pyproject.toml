@@ -10,6 +10,7 @@ python = "^3.10"
 kivy = "^2.3.0"
 kivymd = "^1.2.0"
 pre-commit = "^3.6.2"
+flake8 = "^7.0.0"
 
 
 [build-system]
