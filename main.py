@@ -1,23 +1,22 @@
+import json
+from datetime import datetime
+from http import HTTPStatus
+from typing import Dict
+
+import requests
+from email_validator import EmailNotValidError, validate_email
+from icecream import ic
+from kivy.app import App
 from kivy.lang import Builder
+from kivy.logger import Logger
+from kivy.properties import ObjectProperty
+from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.app import MDApp
-from kivy.logger import Logger
-
-from kivy.properties import ObjectProperty
-import requests
-import json
-from http import HTTPStatus
-from email_validator import validate_email, EmailNotValidError
-from kivy.app import App
+from kivymd.uix.button import MDIconButton
 from kivymd.uix.card import MDCard
 from kivymd.uix.label import MDLabel
-from kivy.uix.gridlayout import GridLayout
-from icecream import ic
-from datetime import datetime
-from typing import Dict
 from kivymd.uix.menu import MDDropdownMenu
-from kivymd.uix.button import MDIconButton
-
 
 SERVER_URL = 'http://127.0.0.1:8000/api/'
 
