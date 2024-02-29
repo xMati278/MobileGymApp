@@ -12,6 +12,8 @@ kivymd = "^1.2.0"
 pre-commit = "^3.6.2"
 flake8 = "^7.0.0"
 pytest = "^8.0.2"
+bandit = "^1.7.7"
+safety = "^3.0.1"
 
 
 [build-system]
