@@ -165,7 +165,8 @@ class UserTrainingPlansWindow(Screen):
         main_app = App.get_running_app()
         if main_app.access_token:
             access_token_header = {'AUTHORIZATION': f'Bearer {main_app.access_token}'}
-            training_plans = requests.get(SERVER_URL + 'readusertrainingplans/', headers=access_token_header)
+            training_plans = requests.get(SERVER_URL + 'readusertrainingplans/', headers=access_token_header,
+                                          timeout=TIME_TIMEOUT)
             return training_plans
         else:
             Logger.warning("Access token is not set.")
