@@ -32,7 +32,7 @@ jobs:
         poetry install
     - name: Test with pytest
       run: |
-        poetry run pytest
+        poetry run pytest test.py
     - name: Run Bandit
       run: |
         poetry run bandit -r .

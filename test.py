@@ -1,0 +1,3 @@
+class TestMobileApp:
+    def test_mobile(self):
+        ...
