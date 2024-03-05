@@ -19,7 +19,7 @@ from kivymd.uix.label import MDLabel
 from kivymd.uix.menu import MDDropdownMenu
 
 SERVER_URL = 'http://127.0.0.1:8000/api/'
-
+TIME_TIMEOUT = 1
 
 class TrainingPlanCard(MDCard):
     def __init__(self, name='', last_training='', **kwargs):
@@ -72,7 +72,7 @@ class LoginWindow(Screen):
 
     def get_login_response(self, url: str) -> requests.Response:
         data = {'username': self.username.text, 'password': self.pwd.text}
-        response = requests.post(url, data=data)
+        response = requests.post(url, data=data, timeout=TIME_TIMEOUT)
         return response
 
     def process_login_response(self, response: requests.Response, url: str):
@@ -81,7 +81,7 @@ class LoginWindow(Screen):
             response_refresh = json.loads(response.content)
 
             access_url = url + 'refresh/'
-            access = requests.post(access_url, data=response_refresh)
+            access = requests.post(access_url, data=response_refresh, timeout=TIME_TIMEOUT)
             access_response = json.loads(access.content)
             access_token = access_response['access']
 
@@ -127,7 +127,7 @@ class SignupWindow(Screen):
 
     def create_account(self, data):
         url = SERVER_URL + 'register/'
-        response = requests.post(url, data=data)
+        response = requests.post(url, data=data, timeout=TIME_TIMEOUT)
         response_data = json.loads(response.content)
 
         if response.status_code == HTTPStatus.BAD_REQUEST:
