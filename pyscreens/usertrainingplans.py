@@ -44,7 +44,8 @@ class UserTrainingPlansWindow(Screen):
                 else:
                     last_training_date = '-'
                 card = TrainingPlanCard(name=training_plan['name'],
-                                        last_training=str(last_training_date))
+                                        last_training=str(last_training_date),
+                                        id=str(training_plan['id']))
                 self.ids.training_plans_list.add_widget(card)
 
         else:
