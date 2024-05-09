@@ -1,9 +1,9 @@
 from kivy.lang import Builder
 from kivymd.app import MDApp
-from pyscreens.login import LoginWindow
-from pyscreens.signup import SignupWindow
-from pyscreens.usertrainingplans import UserTrainingPlansWindow
-from managers.windowmanager import WindowManager
+from modules.login import LoginWindow
+from modules.signup import SignupWindow
+from modules.dashboard import UserTrainingPlansWindow
+from managers.window_manager import WindowManager
 
 
 class MainApp(MDApp):

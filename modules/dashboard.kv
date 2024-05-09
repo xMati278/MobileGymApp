@@ -1,0 +1,55 @@
+<UserTrainingPlansWindow>:
+    id: user_training_plans
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        MDBottomNavigation:
+            id: bottom_nav
+
+            MDBottomNavigationItem:
+                name: 'calculators'
+                text: 'Calculators'
+                icon: 'calculator'
+                on_tab_press: root.on_calculators_tab_press()
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+
+                    MDScrollView:
+                        size: root.width, root.height
+                        MDList:
+                            id: calculator_tab
+                            spacing: dp(10)
+                            padding: (dp(10), dp(10), dp(10), dp(10))
+
+
+
+            MDBottomNavigationItem:
+                name: 'plans'
+                text: 'Plans'
+                icon: 'format-list-bulleted'
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+
+                    MDScrollView:
+                        size: root.width, root.height
+                        MDList:
+                            id: training_plans_list
+                            spacing: dp(10)
+                            padding: (dp(10), dp(10), dp(10), dp(10))
+
+
+            MDBottomNavigationItem:
+                name: 'history'
+                text: 'History'
+                icon: 'history'
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+
+                    MDLabel:
+                        text: 'History Screen'
